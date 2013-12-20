@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CourseLookUpController : UIViewController
+@interface CourseLookUpController : UIViewController <UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end
