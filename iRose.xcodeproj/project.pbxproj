@@ -23,6 +23,14 @@
 		B490CD67186386CF00C85365 /* CourseLookUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490CD66186386CF00C85365 /* CourseLookUpController.m */; };
 		B490CD6A186386E500C85365 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490CD69186386E500C85365 /* ScheduleViewController.m */; };
 		B490CD6D1863870F00C85365 /* RostersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490CD6C1863870F00C85365 /* RostersViewController.m */; };
+		B4FFF4EC1866116A00688BD0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B4FFF4931866116A00688BD0 /* .gitignore */; };
+		B4FFF4ED1866116A00688BD0 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B4FFF4941866116A00688BD0 /* .travis.yml */; };
+		B4FFF4EE1866116A00688BD0 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B4FFF4951866116A00688BD0 /* Config.xcconfig */; };
+		B4FFF4EF1866116A00688BD0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B4FFF4961866116A00688BD0 /* LICENSE */; };
+		B4FFF4F01866116A00688BD0 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = B4FFF4971866116A00688BD0 /* README.markdown */; };
+		B4FFF4F11866116A00688BD0 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FFF49A1866116A00688BD0 /* CJSONDeserializer.m */; };
+		B4FFF4F21866116A00688BD0 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FFF49C1866116A00688BD0 /* CJSONSerializer.m */; };
+		B4FFF4F31866116A00688BD0 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FFF49F1866116A00688BD0 /* NSDictionary_JSONExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +67,18 @@
 		B490CD69186386E500C85365 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = ../ScheduleViewController.m; sourceTree = "<group>"; };
 		B490CD6B1863870F00C85365 /* RostersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RostersViewController.h; path = ../RostersViewController.h; sourceTree = "<group>"; };
 		B490CD6C1863870F00C85365 /* RostersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RostersViewController.m; path = ../RostersViewController.m; sourceTree = "<group>"; };
+		B4FFF4931866116A00688BD0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B4FFF4941866116A00688BD0 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		B4FFF4951866116A00688BD0 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		B4FFF4961866116A00688BD0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B4FFF4971866116A00688BD0 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		B4FFF4991866116A00688BD0 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		B4FFF49A1866116A00688BD0 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		B4FFF49B1866116A00688BD0 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		B4FFF49C1866116A00688BD0 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		B4FFF49D1866116A00688BD0 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		B4FFF49E1866116A00688BD0 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		B4FFF49F1866116A00688BD0 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +138,7 @@
 		B408AF711862BD07001B1BB3 /* iRose */ = {
 			isa = PBXGroup;
 			children = (
+				B4FFF4921866116A00688BD0 /* TouchJSON */,
 				B490CD6B1863870F00C85365 /* RostersViewController.h */,
 				B490CD6C1863870F00C85365 /* RostersViewController.m */,
 				B490CD68186386E500C85365 /* ScheduleViewController.h */,
@@ -160,6 +181,33 @@
 				B408AF8D1862BD07001B1BB3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4FFF4921866116A00688BD0 /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				B4FFF4931866116A00688BD0 /* .gitignore */,
+				B4FFF4941866116A00688BD0 /* .travis.yml */,
+				B4FFF4951866116A00688BD0 /* Config.xcconfig */,
+				B4FFF4961866116A00688BD0 /* LICENSE */,
+				B4FFF4971866116A00688BD0 /* README.markdown */,
+				B4FFF4981866116A00688BD0 /* Source */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
+		B4FFF4981866116A00688BD0 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B4FFF4991866116A00688BD0 /* CJSONDeserializer.h */,
+				B4FFF49A1866116A00688BD0 /* CJSONDeserializer.m */,
+				B4FFF49B1866116A00688BD0 /* CJSONSerializer.h */,
+				B4FFF49C1866116A00688BD0 /* CJSONSerializer.m */,
+				B4FFF49D1866116A00688BD0 /* JSONRepresentation.h */,
+				B4FFF49E1866116A00688BD0 /* NSDictionary_JSONExtensions.h */,
+				B4FFF49F1866116A00688BD0 /* NSDictionary_JSONExtensions.m */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,8 +285,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4FFF4ED1866116A00688BD0 /* .travis.yml in Resources */,
+				B4FFF4EC1866116A00688BD0 /* .gitignore in Resources */,
 				B408AF761862BD07001B1BB3 /* InfoPlist.strings in Resources */,
+				B4FFF4EF1866116A00688BD0 /* LICENSE in Resources */,
 				B408AF7E1862BD07001B1BB3 /* Images.xcassets in Resources */,
+				B4FFF4EE1866116A00688BD0 /* Config.xcconfig in Resources */,
+				B4FFF4F01866116A00688BD0 /* README.markdown in Resources */,
 				B490CD6418633DC100C85365 /* iPhoneStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,10 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4FFF4F31866116A00688BD0 /* NSDictionary_JSONExtensions.m in Sources */,
+				B4FFF4F11866116A00688BD0 /* CJSONDeserializer.m in Sources */,
 				B408AF7C1862BD07001B1BB3 /* AppDelegate.m in Sources */,
 				B490CD6D1863870F00C85365 /* RostersViewController.m in Sources */,
 				B408AF781862BD07001B1BB3 /* main.m in Sources */,
 				B490CD67186386CF00C85365 /* CourseLookUpController.m in Sources */,
+				B4FFF4F21866116A00688BD0 /* CJSONSerializer.m in Sources */,
 				B490CD6A186386E500C85365 /* ScheduleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

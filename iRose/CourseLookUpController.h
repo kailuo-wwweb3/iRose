@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CourseLookUpController : UIViewController <UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+#import "TouchJSON/Source/CJSONDeserializer.h"
+@interface CourseLookUpController : UIViewController <UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, NSURLConnectionDataDelegate>
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end
