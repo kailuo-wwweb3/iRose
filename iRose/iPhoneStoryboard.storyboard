@@ -61,6 +61,7 @@
                     <navigationItem key="navigationItem" title="Course Lookup" id="onH-5Z-x9A"/>
                     <connections>
                         <outlet property="pickerView" destination="A9d-hx-KdW" id="Lpy-DM-v2O"/>
+                        <outlet property="userNameTextField" destination="Z7V-97-ZUf" id="lB0-Eq-9bg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6a-zm-cF4" userLabel="First Responder" sceneMemberID="firstResponder"/>

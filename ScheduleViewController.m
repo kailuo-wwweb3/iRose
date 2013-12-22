@@ -9,6 +9,7 @@
 #import "ScheduleViewController.h"
 
 @interface ScheduleViewController ()
+@property (nonatomic, weak) ScheduleRequest *request;
 
 @end
 
@@ -23,6 +24,11 @@
     return self;
 }
 
+- (void)setScheduleRequest:(ScheduleRequest *)request
+{
+    _request = request;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,6 +38,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
 }
 
 - (void)didReceiveMemoryWarning

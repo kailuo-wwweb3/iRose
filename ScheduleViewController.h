@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScheduleRequest.h"
 
 @interface ScheduleViewController : UITableViewController
 
+- (void)setScheduleRequest: (ScheduleRequest *)request;
 @end

@@ -7,10 +7,11 @@
 //
 
 #import "CourseLookUpController.h"
+#import "ScheduleViewController.h"
 
 #define kUserName   @"username"
 #define kPassword   @"password"
-#define ROOTURL     @"http://localhost:8080/"
+#define kShowSchedule @"showSchedule"
 
 @interface CourseLookUpController ()
 @property (nonatomic, strong) NSArray *terms;
@@ -98,12 +99,15 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-    
+    NSString *termCode = [self.terms objectAtIndex:row];
+    NSString *userName = self.userNameTextField.text;
+    ScheduleRequest *request = [ScheduleRequest initWithUserName:termCode termCode:userName];
+    [self performSegueWithIdentifier:kShowSchedule sender:request];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    ScheduleViewController *destination = segue.destinationViewController;
+    [destination setScheduleRequest:sender];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {

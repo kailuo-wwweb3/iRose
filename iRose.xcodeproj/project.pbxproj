@@ -31,6 +31,8 @@
 		B4FFF4F11866116A00688BD0 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FFF49A1866116A00688BD0 /* CJSONDeserializer.m */; };
 		B4FFF4F21866116A00688BD0 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FFF49C1866116A00688BD0 /* CJSONSerializer.m */; };
 		B4FFF4F31866116A00688BD0 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FFF49F1866116A00688BD0 /* NSDictionary_JSONExtensions.m */; };
+		B4FFF53E1866442400688BD0 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FFF53D1866442400688BD0 /* Constants.m */; };
+		B4FFF541186646EC00688BD0 /* ScheduleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FFF540186646EC00688BD0 /* ScheduleRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,10 @@
 		B4FFF49D1866116A00688BD0 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
 		B4FFF49E1866116A00688BD0 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
 		B4FFF49F1866116A00688BD0 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		B4FFF53C1866442400688BD0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B4FFF53D1866442400688BD0 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		B4FFF53F186646EC00688BD0 /* ScheduleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleRequest.h; sourceTree = "<group>"; };
+		B4FFF540186646EC00688BD0 /* ScheduleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,10 @@
 				B490CD6318633DC100C85365 /* iPhoneStoryboard.storyboard */,
 				B490CD65186386CF00C85365 /* CourseLookUpController.h */,
 				B490CD66186386CF00C85365 /* CourseLookUpController.m */,
+				B4FFF53C1866442400688BD0 /* Constants.h */,
+				B4FFF53D1866442400688BD0 /* Constants.m */,
+				B4FFF53F186646EC00688BD0 /* ScheduleRequest.h */,
+				B4FFF540186646EC00688BD0 /* ScheduleRequest.m */,
 			);
 			path = iRose;
 			sourceTree = "<group>";
@@ -319,6 +329,8 @@
 				B490CD67186386CF00C85365 /* CourseLookUpController.m in Sources */,
 				B4FFF4F21866116A00688BD0 /* CJSONSerializer.m in Sources */,
 				B490CD6A186386E500C85365 /* ScheduleViewController.m in Sources */,
+				B4FFF541186646EC00688BD0 /* ScheduleRequest.m in Sources */,
+				B4FFF53E1866442400688BD0 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
