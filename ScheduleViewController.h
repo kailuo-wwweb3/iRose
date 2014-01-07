@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ScheduleRequest.h"
 
-@interface ScheduleViewController : UITableViewController
-
-- (void)setScheduleRequest: (ScheduleRequest *)request;
+@interface ScheduleViewController : UITableViewController <NSURLConnectionDataDelegate, UITextFieldDelegate>
+- (IBAction)setting:(id)sender;
+@property (nonatomic) ScheduleRequest *request;
+@property (nonatomic) NSString *userName;
+@property (nonatomic) NSString *termCode;
+- (void)loadCourses;
 @end

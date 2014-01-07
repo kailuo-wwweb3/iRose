@@ -10,5 +10,7 @@
 
 @interface Constants : NSObject
 #define ROOTURL     @"http://localhost:8080/"
+#define kUserName   @"username"
+#define kPassword   @"password"
 
 @end

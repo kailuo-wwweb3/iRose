@@ -7,10 +7,12 @@
 //
 
 #import "ScheduleViewController.h"
+#import "Constants.h"
+#import "ScheduleSettingViewController.h"
+#import "CourseRosterViewController.h"
 
 @interface ScheduleViewController ()
-@property (nonatomic, weak) ScheduleRequest *request;
-
+@property (nonatomic) NSArray *courses;
 @end
 
 @implementation ScheduleViewController
@@ -24,10 +26,22 @@
     return self;
 }
 
-- (void)setScheduleRequest:(ScheduleRequest *)request
-{
-    _request = request;
+
+- (NSString *)userName {
+    if (_userName == nil) {
+        _userName = [[NSUserDefaults standardUserDefaults] objectForKey:kUserName];
+    }
+    return _userName;
 }
+
+- (NSString *)termCode {
+    if (_termCode == nil) {
+        _termCode = @"201410";
+    }
+    return _termCode;
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -38,12 +52,43 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    if ([userDefault stringForKey:kUserName] == Nil) {
+        [self popLoginView];
+    }
+    
+
+    [self loadCourses];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    
+- (NSArray *)courses {
+    if (_courses == nil) {
+        _courses = [[NSArray alloc] init];
+    }
+    return _courses;
 }
+
+
+- (void)loadCourses {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *postBody = [NSString stringWithFormat:@"&login=%@&password=%@&username=%@&termcode=%@", [userDefaults objectForKey:kUserName], [userDefaults objectForKey:kPassword], self.userName, self.termCode];
+    NSData *postData = [postBody dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[ROOTURL stringByAppendingString:@"schedule"]]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    [request setHTTPBody:postData];
+    NSLog(@"%@", [[request URL] absoluteString]);
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if (conn) {
+        NSLog(@"Connnection success");
+    } else {
+        NSLog(@"Connection fail");
+    }
+
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -55,29 +100,38 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.courses count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CourseCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     // Configure the cell...
-    
+    cell.textLabel.text = [[_courses objectAtIndex:indexPath.row] objectForKey:@"course"];
+    cell.detailTextLabel.text = [[_courses objectAtIndex:indexPath.row] objectForKey:@"description"];
     return cell;
 }
 
-
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    NSError *error;
+    
+    id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
+    if (error) {
+        NSLog(@"there is an error parsing the json data");
+        return;
+    }
+    _courses = [json objectForKey:@"content"];
+    [self.tableView reloadData];
+}
 
 
 /*
@@ -131,4 +185,54 @@
 
  */
 
+- (void)popLoginView {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login" message:@"" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"login", nil];
+    [alertView setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+    UITextField* usernameInput = [alertView textFieldAtIndex:0];
+    UITextField* passwordInput = [alertView textFieldAtIndex:1];
+    usernameInput.placeholder = @"username";
+    passwordInput.placeholder = @"password";
+    [passwordInput setSecureTextEntry:YES];
+    [alertView show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == alertView.cancelButtonIndex) {
+        return;
+    }
+    NSString *username = [alertView textFieldAtIndex:0].text;
+    NSString *password = [alertView textFieldAtIndex:1].text;
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:username, kUserName, password, kPassword, nil];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault registerDefaults:dict];
+    [userDefault synchronize];
+    
+    [self loadCourses];
+    return;
+}
+
+
+- (IBAction)setting:(id)sender {
+    [self performSegueWithIdentifier:@"scheduleSetting" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"scheduleSetting"]) {
+        ScheduleSettingViewController *settingViewController = (ScheduleSettingViewController *)segue.destinationViewController;
+        settingViewController.delegate = self;
+        settingViewController.userName = self.userName;
+        settingViewController.termCode = self.termCode;
+    } else if ([segue.identifier isEqualToString:@"showRosters"]) {
+        CourseRosterViewController *courseRosterViewController = (CourseRosterViewController *)segue.destinationViewController;
+        courseRosterViewController.termCode = self.termCode;
+        courseRosterViewController.courseID = [sender objectForKey:@"course"];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showRosters" sender:[self.courses objectAtIndex:indexPath.row]];
+}
 @end
+

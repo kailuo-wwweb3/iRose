@@ -19,10 +19,13 @@
 		B408AF871862BD07001B1BB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B408AF6F1862BD07001B1BB3 /* UIKit.framework */; };
 		B408AF8F1862BD07001B1BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B408AF8D1862BD07001B1BB3 /* InfoPlist.strings */; };
 		B408AF911862BD07001B1BB3 /* iRoseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B408AF901862BD07001B1BB3 /* iRoseTests.m */; };
+		B40D285E186BA2510086535D /* ScheduleSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B40D285D186BA2510086535D /* ScheduleSettingViewController.m */; };
+		B45EACDA1867D21A00A1391A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = B45EACD91867D21A00A1391A /* Course.m */; };
 		B490CD6418633DC100C85365 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B490CD6318633DC100C85365 /* iPhoneStoryboard.storyboard */; };
-		B490CD67186386CF00C85365 /* CourseLookUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490CD66186386CF00C85365 /* CourseLookUpController.m */; };
 		B490CD6A186386E500C85365 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490CD69186386E500C85365 /* ScheduleViewController.m */; };
 		B490CD6D1863870F00C85365 /* RostersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B490CD6C1863870F00C85365 /* RostersViewController.m */; };
+		B496DFBD187B671C00390981 /* CourseRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B496DFBC187B671C00390981 /* CourseRosterViewController.m */; };
+		B496DFC0187BAB9900390981 /* RosterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B496DFBF187BAB9900390981 /* RosterDetailViewController.m */; };
 		B4FFF4EC1866116A00688BD0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B4FFF4931866116A00688BD0 /* .gitignore */; };
 		B4FFF4ED1866116A00688BD0 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B4FFF4941866116A00688BD0 /* .travis.yml */; };
 		B4FFF4EE1866116A00688BD0 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B4FFF4951866116A00688BD0 /* Config.xcconfig */; };
@@ -62,13 +65,19 @@
 		B408AF8C1862BD07001B1BB3 /* iRoseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRoseTests-Info.plist"; sourceTree = "<group>"; };
 		B408AF8E1862BD07001B1BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B408AF901862BD07001B1BB3 /* iRoseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRoseTests.m; sourceTree = "<group>"; };
+		B40D285C186BA2510086535D /* ScheduleSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleSettingViewController.h; sourceTree = "<group>"; };
+		B40D285D186BA2510086535D /* ScheduleSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleSettingViewController.m; sourceTree = "<group>"; };
+		B45EACD81867D21A00A1391A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = TouchJSON/Course.h; sourceTree = "<group>"; };
+		B45EACD91867D21A00A1391A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = TouchJSON/Course.m; sourceTree = "<group>"; };
 		B490CD6318633DC100C85365 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
-		B490CD65186386CF00C85365 /* CourseLookUpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseLookUpController.h; sourceTree = "<group>"; };
-		B490CD66186386CF00C85365 /* CourseLookUpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseLookUpController.m; sourceTree = "<group>"; };
 		B490CD68186386E500C85365 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = ../ScheduleViewController.h; sourceTree = "<group>"; };
 		B490CD69186386E500C85365 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = ../ScheduleViewController.m; sourceTree = "<group>"; };
 		B490CD6B1863870F00C85365 /* RostersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RostersViewController.h; path = ../RostersViewController.h; sourceTree = "<group>"; };
 		B490CD6C1863870F00C85365 /* RostersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RostersViewController.m; path = ../RostersViewController.m; sourceTree = "<group>"; };
+		B496DFBB187B671C00390981 /* CourseRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseRosterViewController.h; sourceTree = "<group>"; };
+		B496DFBC187B671C00390981 /* CourseRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseRosterViewController.m; sourceTree = "<group>"; };
+		B496DFBE187BAB9900390981 /* RosterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosterDetailViewController.h; sourceTree = "<group>"; };
+		B496DFBF187BAB9900390981 /* RosterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosterDetailViewController.m; sourceTree = "<group>"; };
 		B4FFF4931866116A00688BD0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B4FFF4941866116A00688BD0 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		B4FFF4951866116A00688BD0 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -144,22 +153,14 @@
 		B408AF711862BD07001B1BB3 /* iRose */ = {
 			isa = PBXGroup;
 			children = (
+				B45EACDC1867D40100A1391A /* viewControllers */,
+				B45EACDB1867D3F200A1391A /* classes */,
 				B4FFF4921866116A00688BD0 /* TouchJSON */,
-				B490CD6B1863870F00C85365 /* RostersViewController.h */,
-				B490CD6C1863870F00C85365 /* RostersViewController.m */,
-				B490CD68186386E500C85365 /* ScheduleViewController.h */,
-				B490CD69186386E500C85365 /* ScheduleViewController.m */,
 				B408AF7A1862BD07001B1BB3 /* AppDelegate.h */,
 				B408AF7B1862BD07001B1BB3 /* AppDelegate.m */,
 				B408AF7D1862BD07001B1BB3 /* Images.xcassets */,
 				B408AF721862BD07001B1BB3 /* Supporting Files */,
 				B490CD6318633DC100C85365 /* iPhoneStoryboard.storyboard */,
-				B490CD65186386CF00C85365 /* CourseLookUpController.h */,
-				B490CD66186386CF00C85365 /* CourseLookUpController.m */,
-				B4FFF53C1866442400688BD0 /* Constants.h */,
-				B4FFF53D1866442400688BD0 /* Constants.m */,
-				B4FFF53F186646EC00688BD0 /* ScheduleRequest.h */,
-				B4FFF540186646EC00688BD0 /* ScheduleRequest.m */,
 			);
 			path = iRose;
 			sourceTree = "<group>";
@@ -191,6 +192,36 @@
 				B408AF8D1862BD07001B1BB3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B45EACDB1867D3F200A1391A /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				B45EACD81867D21A00A1391A /* Course.h */,
+				B45EACD91867D21A00A1391A /* Course.m */,
+				B4FFF53C1866442400688BD0 /* Constants.h */,
+				B4FFF53D1866442400688BD0 /* Constants.m */,
+				B4FFF53F186646EC00688BD0 /* ScheduleRequest.h */,
+				B4FFF540186646EC00688BD0 /* ScheduleRequest.m */,
+			);
+			name = classes;
+			sourceTree = "<group>";
+		};
+		B45EACDC1867D40100A1391A /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B490CD6B1863870F00C85365 /* RostersViewController.h */,
+				B490CD6C1863870F00C85365 /* RostersViewController.m */,
+				B490CD68186386E500C85365 /* ScheduleViewController.h */,
+				B490CD69186386E500C85365 /* ScheduleViewController.m */,
+				B40D285C186BA2510086535D /* ScheduleSettingViewController.h */,
+				B40D285D186BA2510086535D /* ScheduleSettingViewController.m */,
+				B496DFBB187B671C00390981 /* CourseRosterViewController.h */,
+				B496DFBC187B671C00390981 /* CourseRosterViewController.m */,
+				B496DFBE187BAB9900390981 /* RosterDetailViewController.h */,
+				B496DFBF187BAB9900390981 /* RosterDetailViewController.m */,
+			);
+			name = viewControllers;
 			sourceTree = "<group>";
 		};
 		B4FFF4921866116A00688BD0 /* TouchJSON */ = {
@@ -321,12 +352,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B40D285E186BA2510086535D /* ScheduleSettingViewController.m in Sources */,
+				B496DFBD187B671C00390981 /* CourseRosterViewController.m in Sources */,
 				B4FFF4F31866116A00688BD0 /* NSDictionary_JSONExtensions.m in Sources */,
 				B4FFF4F11866116A00688BD0 /* CJSONDeserializer.m in Sources */,
 				B408AF7C1862BD07001B1BB3 /* AppDelegate.m in Sources */,
+				B45EACDA1867D21A00A1391A /* Course.m in Sources */,
 				B490CD6D1863870F00C85365 /* RostersViewController.m in Sources */,
 				B408AF781862BD07001B1BB3 /* main.m in Sources */,
-				B490CD67186386CF00C85365 /* CourseLookUpController.m in Sources */,
+				B496DFC0187BAB9900390981 /* RosterDetailViewController.m in Sources */,
 				B4FFF4F21866116A00688BD0 /* CJSONSerializer.m in Sources */,
 				B490CD6A186386E500C85365 /* ScheduleViewController.m in Sources */,
 				B4FFF541186646EC00688BD0 /* ScheduleRequest.m in Sources */,
