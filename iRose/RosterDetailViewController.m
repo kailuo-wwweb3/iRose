@@ -49,6 +49,9 @@
 }
 
 - (IBAction)sendEmail:(id)sender {
+    NSLog(@"send email");
+    NSString *urlEmail = [[@"mailto:" stringByAppendingString:self.emailButton.titleLabel.text] stringByAppendingString:@"?subject=&body="];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlEmail]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -57,12 +57,6 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    ScheduleViewController *scheduleViewController = (ScheduleViewController *)segue.destinationViewController;
-//    scheduleViewController.userName = self.userNameTextField.text;
-//    scheduleViewController.termCode = [[self.terms objectAtIndex:[self.termPickerView selectedRowInComponent:0]] objectForKey:@"termCode"];
-}
-
 - (void)loadTerms {
     if ([self.terms count] == 0) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
