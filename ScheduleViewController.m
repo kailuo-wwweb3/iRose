@@ -13,9 +13,11 @@
 
 @interface ScheduleViewController ()
 @property (nonatomic) NSArray *courses;
+@property (nonatomic) RequestType requestType;
 @end
 
 @implementation ScheduleViewController
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -70,6 +72,7 @@
 
 
 - (void)loadCourses {
+    self.requestType = CourseScheduleRequest;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *postBody = [NSString stringWithFormat:@"&login=%@&password=%@&username=%@&termcode=%@", [userDefaults objectForKey:kUserName], [userDefaults objectForKey:kPassword], self.userName, self.termCode];
     NSData *postData = [postBody dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -117,20 +120,26 @@
     // Configure the cell...
     cell.textLabel.text = [[_courses objectAtIndex:indexPath.row] objectForKey:@"course"];
     cell.detailTextLabel.text = [[_courses objectAtIndex:indexPath.row] objectForKey:@"description"];
+    NSLog(@"%@", cell.detailTextLabel.text);
     return cell;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     NSError *error;
     
-    id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    
-    if (error) {
-        NSLog(@"there is an error parsing the json data");
-        return;
+    if (self.requestType == CourseScheduleRequest) {
+        id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        if (error) {
+            NSLog(@"there is an error parsing the json data");
+            [NSThread sleepForTimeInterval:1.0f];
+            [self loadCourses];
+            return;
+        }
+        _courses = [json objectForKey:@"content"];
+        [self.tableView reloadData];
+    } else if (self.requestType == LoginValidationRequest) {
+        
     }
-    _courses = [json objectForKey:@"content"];
-    [self.tableView reloadData];
 }
 
 
@@ -203,6 +212,7 @@
     }
     NSString *username = [alertView textFieldAtIndex:0].text;
     NSString *password = [alertView textFieldAtIndex:1].text;
+    [self validateLoginInfoWithUserName:username password:password];
     
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:username, kUserName, password, kPassword, nil];
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
@@ -213,6 +223,25 @@
     return;
 }
 
+- (void)validateLoginInfoWithUserName:(NSString *)username password:(NSString *)password {
+    self.requestType = LoginValidationRequest;
+    NSString *postBody = [NSString stringWithFormat:@"&login=%@&password=%@", username, password];
+    NSData *postData = [postBody dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[ROOTURL stringByAppendingString:@"validateLogin"]]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    [request setHTTPBody:postData];
+    NSLog(@"%@", [[request URL] absoluteString]);
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if (conn) {
+        NSLog(@"Connnection success");
+    } else {
+        NSLog(@"Connection fail");
+    }
+
+}
 
 - (IBAction)setting:(id)sender {
     [self performSegueWithIdentifier:@"scheduleSetting" sender:nil];

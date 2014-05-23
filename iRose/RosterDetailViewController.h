@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RosterDetailViewController : UIViewController
+@interface RosterDetailViewController : UIViewController <NSURLConnectionDataDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (nonatomic) NSDictionary *rosterInfo;

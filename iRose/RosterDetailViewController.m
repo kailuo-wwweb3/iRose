@@ -8,6 +8,7 @@
 
 #import "RosterDetailViewController.h"
 #import "ScheduleViewController.h"
+#import "Constants.h"
 
 @interface RosterDetailViewController ()
 
@@ -29,6 +30,40 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self displayRosterInfo];
+    NSString *imageUrl = [ROOTURL stringByAppendingString:[[@"IDphotos/"stringByAppendingString:self.userName.text] stringByAppendingString:@".jpg"]];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]];
+    if (imageData == NULL) {
+        [self loadImage];
+    } else {
+        self.profileImage.image = [UIImage imageWithData:imageData];
+    }
+    
+}
+
+- (void)loadImage {
+    NSString *postBody = [NSString stringWithFormat:@"&username=%@", self.userName.text];
+    NSData *postData = [postBody dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[ROOTURL stringByAppendingString:@"IDphoto"]]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    [request setHTTPBody:postData];
+    NSLog(@"%@", [[request URL] absoluteString]);
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if (conn) {
+        NSLog(@"Connnection success");
+    } else {
+        NSLog(@"Connection fail");
+    }
+
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    NSString* imageUrl = [NSString stringWithUTF8String:[data bytes]];
+    
+    
+    self.profileImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
 }
 
 - (void)displayRosterInfo {

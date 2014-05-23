@@ -12,5 +12,8 @@
 #define ROOTURL     @"http://localhost:8080/"
 #define kUserName   @"username"
 #define kPassword   @"password"
-
+typedef enum {
+    LoginValidationRequest,
+    CourseScheduleRequest
+} RequestType;
 @end

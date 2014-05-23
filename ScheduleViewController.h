@@ -14,5 +14,7 @@
 @property (nonatomic) ScheduleRequest *request;
 @property (nonatomic) NSString *userName;
 @property (nonatomic) NSString *termCode;
+
+
 - (void)loadCourses;
 @end
